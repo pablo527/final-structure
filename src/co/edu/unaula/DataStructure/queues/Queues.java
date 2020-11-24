@@ -50,4 +50,11 @@ public class Queues {
         System.out.println("The queue is empty");
 
     }
+    public boolean validateSize(){
+        if(size == 1){
+            System.out.println("The last node is: " + lastNode.getData());
+            return true;
+        }
+        return false;
+    }
 }

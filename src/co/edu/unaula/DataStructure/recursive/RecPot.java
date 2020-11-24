@@ -4,25 +4,24 @@ public class RecPot {
 
     private double exponent;
     private double result;
-    private final double UNO = 1;
-    private final double CERO = 0;
-    private final double MENOSUNO = -1;
+    private final double ONE = 1;
+    private final double ZERO = 0;
+    private final double MINUSONE = -1;
 
     public RecPot(){
-        exponent = MENOSUNO;
-        result = CERO;
+        exponent = MINUSONE;
+        result = ZERO;
     }
 
     public double calcRecurExpo(double exponent, double base){
-        if(exponent < CERO){
-            System.out.println("El exponente es incorrecto");
-            return MENOSUNO;
+        if(exponent < ZERO){
+            return MINUSONE;
         }
 
-        if(exponent == CERO){
-            return UNO;
+        if(exponent == ZERO){
+            return ONE;
         }
-        result = base * calcRecurExpo(exponent - UNO, base);
+        result = base * calcRecurExpo(exponent - ONE, base);
         return result;
     }
 }

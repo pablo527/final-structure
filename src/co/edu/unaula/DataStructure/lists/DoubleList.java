@@ -1,4 +1,5 @@
 package co.edu.unaula.DataStructure.lists;
+import co.edu.unaula.DataStructure.nodes.Node;
 import co.edu.unaula.DataStructure.nodes.NodeDouble;
 
 public class DoubleList {
@@ -31,11 +32,26 @@ public class DoubleList {
             throw ex;
         }
     }
-
-
     public NodeDouble deleteNode() {
-        System.out.println("is emty");
-       return null;
+        if (isEmpty()){
+            System.out.println("The list is empty");
+            return null;
+        }
+        NodeDouble deletedNode = tail;
+        if(tail == head ){
+            head = null;
+            tail = null;
+        } else{
+            NodeDouble current = head;
+            while(current.getNextElement () != tail){
+                current = current.getNextElement();
+            }
+            current.setNextElement(null);
+            tail = current;
+        }
+        size --;
+        return deletedNode;
+
     }
 
     public void printTail() {

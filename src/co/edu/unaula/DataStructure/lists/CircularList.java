@@ -1,8 +1,15 @@
 package co.edu.unaula.DataStructure.lists;
 
 import co.edu.unaula.DataStructure.nodes.Node;
+import co.edu.unaula.DataStructure.nodes.NodeDouble;
 
 public class CircularList {
+
+    NodeDouble firstNode;
+    NodeDouble lastNode;
+    NodeDouble newNode;
+    private NodeDouble deletedNode;
+    int size;
 
     public  CircularList() {
         this.firstNode = null;
@@ -12,29 +19,25 @@ public class CircularList {
         this.size = 0;
     }
 
-    Node firstNode;
-    Node lastNode;
-    Node newNode;
-    private Node deletedNode;
-    int size;
-
     private boolean isEmpty(){
         return size == 0;
     }
     public CircularList addNode(Object data){
-        newNode = new Node(data);
+        newNode = new NodeDouble(data);
         if (isEmpty()){
             firstNode = newNode;
         } else {
-            lastNode.setNext(newNode);
+            lastNode.setNextElement(newNode);
+            newNode.setPreviousElement(lastNode);
         }
 
         lastNode = newNode;
-        lastNode.setNext(firstNode);
+        lastNode.setNextElement(firstNode);
+        firstNode.setPreviousElement(lastNode);
         size ++;
         return this;
     }
-    public Node deleteNode() {
+    public NodeDouble deleteNode() {
         if (isEmpty()){
             System.out.println("The list is empty");
             return null;
@@ -46,26 +49,38 @@ public class CircularList {
             lastNode = null;
             return null;
         } else{
-            Node current = firstNode;
-            while(current.getNext() != lastNode){
-                current = current.getNext();
+            NodeDouble current = firstNode;
+            while(current.getNextElement() != lastNode){
+                current = current.getNextElement();
             }
-            current.setNext(null);
+            current.setNextElement(null);
             lastNode = current;
-            lastNode.setNext(firstNode);
+            lastNode.setNextElement(firstNode);
             return deletedNode;
 
         }
 
     }
 
-    public void printNodes(){
+    public void printNodesFirst(){
 
-        Node current = firstNode;
+        NodeDouble current = firstNode;
         if (!isEmpty()){
             for (int i = 0; i < size; i++){
-                System.out.println("Data -> " + current.getData() + " Prompter -> " + current.getNext() + " Data's Promter: " + current.getNext().getData());
-                current = current.getNext();
+                System.out.println("Data -> " + current.getData() + " Prompter -> " + current.getNextElement() + " Data's Promter: " + current.getNextElement().getData());
+                current = current.getNextElement();
+            }
+        } else {
+            System.out.println("the list is empty");
+        }
+    }
+    public void printNodesLast(){
+
+        NodeDouble current = lastNode;
+        if (!isEmpty()){
+            for (int i = 0; i < size; i++){
+                System.out.println("Data -> " + current.getData() + " Prompter -> " + current.getPreviousElement() + " Data's Promter: " + current.getPreviousElement().getData());
+                current = current.getPreviousElement();
             }
         } else {
             System.out.println("the list is empty");

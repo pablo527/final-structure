@@ -101,7 +101,7 @@ public class Cases {
             case 3 -> {
                 // aqui falta programa imprimir por last o first
 
-                circularList.printNodes();
+                circularList.printNodesFirst();
             }
             case 4 -> opcMenu=  menu.mainMenu();
         }

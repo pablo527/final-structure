@@ -44,4 +44,11 @@ public class StackSimpleList {
         }
         System.out.println("The stack is empty");
     }
+    public boolean validateSize(){
+        if(size == 1){
+            System.out.println("The last node is: " + topElement.getData());
+            return true;
+        }
+        return false;
+    }
 }

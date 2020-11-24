@@ -8,7 +8,6 @@ public class Menu {
     private static int opcMenu;
     public int mainMenu(){
         try {
-            int opcMenu;
             do {
                 System.out.println("Principal menu");
                 System.out.println(
@@ -38,7 +37,6 @@ public class Menu {
         }
     }
     public int listMenu(){
-
 
         try {
 
@@ -90,7 +88,6 @@ public class Menu {
 
     }
     public int stackMenu(){
-        int opcStack;
         try {
             do {
                 System.out.println("Stack menu");
@@ -101,15 +98,15 @@ public class Menu {
                                 "3. Print \n" +
                                 "4.Return to main menu"
                 );
-                opcStack = scan.nextInt();
-                if (opcStack <1 || opcStack > 4){
+                opcMenu = scan.nextInt();
+                if (opcMenu <1 || opcMenu > 4){
                     System.out.println("invalid option");
                     ban = true;
                 } else {
                     ban = false;
                 }
             } while (ban);
-            return opcStack;
+            return opcMenu;
         } catch (Exception ex){
             System.out.println("Incorrect Input");
             return -1;
@@ -117,7 +114,6 @@ public class Menu {
     }
     public int queuesMenu(){
         try {
-            int opcQue;
             do {
                 System.out.println("Queue menu");
                 System.out.println(
@@ -127,15 +123,15 @@ public class Menu {
                                 "3.Print queue\n" +
                                 "4.Return to main menu"
                 );
-                opcQue = scan.nextInt();
-                if (opcQue <1 || opcQue > 4){
+                opcMenu = scan.nextInt();
+                if (opcMenu <1 || opcMenu > 4){
                     System.out.println("invalid option");
                     ban = true;
                 } else {
                     ban = false;
                 }
             } while (ban);
-            return opcQue;
+            return opcMenu;
 
         } catch (Exception ex){
             System.out.println("Incorrect Input");
@@ -195,7 +191,6 @@ public class Menu {
     }
     public int deleteMenu(){
         try {
-            int opcDel;
             do {
                 System.out.println("Do you want to delete");
                 System.out.println(
@@ -203,15 +198,15 @@ public class Menu {
                                 "1.yes \n" +
                                 "2.Decline "
                 );
-                opcDel = scan.nextInt();
-                if (opcDel <1 || opcDel > 2){
+                opcMenu = scan.nextInt();
+                if (opcMenu <1 || opcMenu > 2){
                     System.out.println("invalid option");
                     ban = true;
                 } else {
                     ban = false;
                 }
             } while (ban);
-            return opcDel;
+            return opcMenu;
 
         } catch (Exception ex){
             System.out.println("Incorrect Input");

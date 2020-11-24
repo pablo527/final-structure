@@ -1,6 +1,5 @@
 package co.edu.unaula.DataStructure;
 
-import co.edu.unaula.DataStructure.cases.Cases;
 import co.edu.unaula.DataStructure.lists.CircularList;
 import co.edu.unaula.DataStructure.lists.DoubleList;
 import co.edu.unaula.DataStructure.lists.SimpleList;
@@ -29,8 +28,6 @@ public class Main {
     static RecursiveFact factorial = new RecursiveFact();
     static RecPot  potency = new RecPot();
     static Menu menu= new Menu();
-    static Cases Ncase = new Cases();
-    // buscar metodo de reutilizar variables
     // hacer que funcione esto mismo los casos desde una clase externa pdt(ya esta creada la clase)
 
     public static void main(String[] args) {
@@ -45,7 +42,7 @@ public class Main {
                        if (listMenu <1){
                            return;
                        }
-                       caso1(listMenu);
+                       listSimple(listMenu);
                        break;
 
                    case 2:
@@ -53,35 +50,35 @@ public class Main {
                        if (listMenu <1){
                            return;
                        }
-                       caso2(listMenu);
+                       doubleList(listMenu);
                        break;
                    case 3:
                        listMenu = menu.listMenu();
                        if (listMenu <1){
                            return;
                        }
-                       caso3(listMenu);
+                       circularList(listMenu);
                        break;
                    case 4:
                        opcStack = menu.stackMenu();
                        if (opcStack <1){
                            return;
                        }
-                       caso4(opcStack);
+                       stack(opcStack);
                        break;
                    case 5:
                        opcQue = menu.queuesMenu();
                        if (opcQue < 1){
                            return;
                        }
-                       caso5(opcQue);
+                       queue(opcQue);
                        break;
                    case 6:
                        opcRec = menu.recurMenu();
                        if (opcRec < 1){
                            return;
                        }
-                       caso6(opcRec);
+                       recurFact(opcRec);
                        break;
                    case 7:
                        System.out.println("binary");
@@ -98,7 +95,7 @@ public class Main {
            System.out.println(ex.getMessage());
        }
     }
-    public static void caso1(int listMenu){
+    public static void listSimple (int listMenu){
 
         switch (listMenu) {
             case 1 -> {
@@ -112,7 +109,6 @@ public class Main {
                 newElement = 1;
             }
             case 2 -> {
-                int opc = 0;
                 simpleList.validateSize();
                 opc = menu.deleteMenu();
 
@@ -121,7 +117,6 @@ public class Main {
                 } else if (opc == 2){
                     System.out.println("The data was not deleted");
                 }
-                opc = 0;
             }
             case 3 -> simpleList.printList();
             case 4 ->  opcMenu =  menu.mainMenu();
@@ -129,7 +124,7 @@ public class Main {
         }
     }
 
-    public static void caso2(int listMenu){
+    public static void doubleList (int listMenu){
         switch (listMenu) {
             case 1 -> {
                 while (newElement == 1) {
@@ -142,11 +137,10 @@ public class Main {
                 newElement = 1;
             }
             case 2 ->  {
-                int opc;
+
                 doubleList.validateSize();
                 opc = menu.deleteMenu();
                 if(opc == 1){
-                    // falta eliminar
                     doubleList.deleteNode();
                 } else if (opc == 2){
                     System.out.println("The data was not deleted");
@@ -161,13 +155,11 @@ public class Main {
                     doubleList.printTail();
                 }
             }
-            case 4 -> {
-                opcMenu=  menu.mainMenu();
-            }
+            case 4 -> opcMenu=  menu.mainMenu();
         }
 
     }
-    public static void caso3(int listMenu){
+    public static void circularList (int listMenu){
         switch (listMenu) {
             case 1 -> {
                 while (newElement == 1) {
@@ -180,7 +172,6 @@ public class Main {
                 newElement = 1;
             }
             case 2 ->  {
-                int opc;
                 circularList.validateSize();
                 opc = menu.deleteMenu();
                 if(opc == 1){
@@ -190,14 +181,21 @@ public class Main {
                 }
             }
             case 3 -> {
-                // aqui falta programa imprimir por last o first
 
-               circularList.printNodes();
+                int opcPrint;
+                opcPrint = menu.printMenu();
+                if (opcPrint == 1){
+                    circularList.printNodesFirst();
+                } else if (opcPrint ==2){
+                    circularList.printNodesLast();
+                }
+
+
             }
             case 4 -> opcMenu=  menu.mainMenu();
         }
     }
-    public static void caso4(int opcStack){
+    public static void stack(int opcStack){
         switch (opcStack){
             case 1 -> {
                 while (newElement == 1) {
@@ -210,22 +208,19 @@ public class Main {
                 newElement = 1;
             }
             case 2 ->  {
-                System.out.println("Are you sure you want to unstack an item?");
-                // aqui da un error al elimiar y luego añadir
-                opc = scan.nextInt();
-                if (opc == 1){
+                stack.validateSize();
+                opc = menu.deleteMenu();
+                if(opc == 1){
                     stack.pop();
+                } else if (opc == 2){
+                    System.out.println("The data was not deleted");
                 }
             }
-            case 3 -> {
-                stack.printStack();
-            }
-            case 4 -> {
-                opcMenu=  menu.mainMenu();
-            }
+            case 3 -> stack.printStack();
+            case 4 -> opcMenu=  menu.mainMenu();
         }
     }
-    public static void caso5(int opcQue){
+    public static void queue (int opcQue){
         switch (opcQue){
             case 1 -> {
                 while (newElement == 1) {
@@ -238,46 +233,49 @@ public class Main {
                 newElement = 1;
             }
             case 2 ->  {
-                System.out.println("Are you sure you want to dequeue an item?");
-                // aqui da un error al elimiar y luego añadir
-                opc = scan.nextInt();
-                if (opc == 1){
+                queues.validateSize();
+                opc = menu.deleteMenu();
+                if(opc == 1){
                     queues.dequeue();
+                } else if (opc == 2){
+                    System.out.println("The data was not deleted");
                 }
             }
-            case 3 -> {
-                queues.printQueue();
-            }
-            case 4 -> {
-                opcMenu=  menu.mainMenu();
-            }
+            case 3 -> queues.printQueue();
+            case 4 -> opcMenu=  menu.mainMenu();
         }
     }
-    public static  void caso6(int opcRec){
+    public static  void recurFact (int opcRec){
         switch (opcRec){
             case 1 -> {
                 int num;
                 double result;
-                System.out.println("Ingrese el numero a calcular factorial");
+                System.out.println("\n" + "Enter the number to calculate factorial");
                 num = scan.nextInt();
                 result =  factorial.calcFactRecur(num);
-                System.out.println("El factorial de: " + num +" = " + result +"\n");
+                if (result <0){
+                    System.out.println("it is not possible to calculate");
+                } else {
+                    System.out.println("the factorial of : " + num +" = " + result +"\n");
+                }
             }
             case 2 -> {
                 double expo;
                 double base;
                 double result;
-                System.out.println("Ingrese la base");
+                System.out.println("Enter base");
                 base = scan.nextInt();
-                System.out.println("Ingrese el exponente");
+                System.out.println("Enter  the exponent");
                 expo = scan.nextInt();
                 result  = potency.calcRecurExpo(expo,base);
-                System.out.println("La base de: " + base + " al exponente: " + expo +
-                        " es = " + result + "\n");
+                if (result <0){
+                    System.out.println("it is not possible to calculate");
+                } else {
+                    System.out.println("the base of: " + base + " to the exponent: " + expo +
+                            " is = " + result + "\n");
+                }
             }
-            case 3 -> {
-                opcMenu=  menu.mainMenu();
-            }
+            case 3 -> opcMenu=  menu.mainMenu();
         }
     }
 }

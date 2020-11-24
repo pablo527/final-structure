@@ -2,9 +2,9 @@ package co.edu.unaula.DataStructure.recursive;
 
 public class RecursiveFact {
     private double Factorial;
-    private final int NUMEROMENOSUNO = -1;
-    private final int NUMEROUNO = 1;
-    private final int NUMEROCERO = 0;
+    private final int MINUSONE = -1;
+    private final int ONE = 1;
+    private final int ZERO = 0;
 
 
     public RecursiveFact(){
@@ -14,11 +14,10 @@ public class RecursiveFact {
     public double calcFactRecur(int number){
 
         if(validate(number)){
-            System.out.println("El número: "+ number + " es incorrecto" );
-            return NUMEROMENOSUNO;
+            return MINUSONE;
         }
-        if (number == NUMEROCERO){
-            return NUMEROUNO;
+        if (number == ZERO){
+            return ONE;
         }
         Factorial = number * (calcFactRecur(number -1));
         return Factorial;

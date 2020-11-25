@@ -67,7 +67,7 @@ public class CircularList {
         NodeDouble current = firstNode;
         if (!isEmpty()){
             for (int i = 0; i < size; i++){
-                System.out.println("Data -> " + current.getData() + " Prompter -> " + current.getNextElement() + " Data's Promter: " + current.getNextElement().getData());
+                System.out.println( current.getPreviousElement() + " -> " + current.getData() + "  -> " + current.getNextElement());
                 current = current.getNextElement();
             }
         } else {
@@ -79,7 +79,7 @@ public class CircularList {
         NodeDouble current = lastNode;
         if (!isEmpty()){
             for (int i = 0; i < size; i++){
-                System.out.println("Data -> " + current.getData() + " Prompter -> " + current.getPreviousElement() + " Data's Promter: " + current.getPreviousElement().getData());
+                System.out.println( current.getNextElement() + " -> " + current.getData() + "  -> " + current.getPreviousElement());
                 current = current.getPreviousElement();
             }
         } else {

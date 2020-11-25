@@ -76,10 +76,10 @@ public class SimpleList {
             for(int i=0 ; i<size; i++){
                 if ( current.getNext() != null){
                     sizeString = current.getNext().toString().length();
-                    System.out.println(current.getData() + "---> Next " +
-                            "Node"+ current.getNext().toString().substring(38,sizeString) +  "\n" );
+                    System.out.println(current.getData() + " -> "
+                            + current.getNext().toString().substring(38,sizeString) +  "\n" );
                 }else{
-                    System.out.println(current.getData() + "---> Next " + "null" +  "\n" );
+                    System.out.println(current.getData() + "-> " + "null" +  "\n" );
                 }
                 current = current.getNext();
             }

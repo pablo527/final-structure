@@ -1,5 +1,6 @@
 package co.edu.unaula.DataStructure;
 
+import co.edu.unaula.DataStructure.binaryTree.BinaryTree;
 import co.edu.unaula.DataStructure.lists.CircularList;
 import co.edu.unaula.DataStructure.lists.DoubleList;
 import co.edu.unaula.DataStructure.lists.SimpleList;
@@ -17,6 +18,7 @@ public class Main {
     static int opcStack;
     static int opcQue;
     static int opcRec;
+    static int opcTree;
     static String data = "";
     static int newElement = 1;
     static int opc;
@@ -27,8 +29,8 @@ public class Main {
     static Queues queues = new Queues();
     static RecursiveFact factorial = new RecursiveFact();
     static RecPot  potency = new RecPot();
+    static BinaryTree binaryTree;
     static Menu menu= new Menu();
-    // hacer que funcione esto mismo los casos desde una clase externa pdt(ya esta creada la clase)
 
     public static void main(String[] args) {
 
@@ -81,10 +83,15 @@ public class Main {
                        recurFact(opcRec);
                        break;
                    case 7:
-                       System.out.println("binary");
+                       opcTree = menu.binaryTreeMenu();
+                       if (opcTree < 1){
+                           return;
+                       }
+                       binaryTree(opcTree);
                        break;
                    case 8:
-                       System.out.println("graphs");
+                       System.out.println("Graphs not found \n");
+                       opcMenu = menu.mainMenu();
                        break;
                    default:
                        return;
@@ -98,7 +105,7 @@ public class Main {
     public static void listSimple (int listMenu){
 
         switch (listMenu) {
-            case 1 -> {
+            case 1: {
                 while (newElement == 1) {
                     System.out.println("Add data to Simple list");
                     data = scan.nextLine();
@@ -108,7 +115,7 @@ public class Main {
                 }
                 newElement = 1;
             }
-            case 2 -> {
+            case 2: {
                 simpleList.validateSize();
                 opc = menu.deleteMenu();
 
@@ -118,15 +125,14 @@ public class Main {
                     System.out.println("The data was not deleted");
                 }
             }
-            case 3 -> simpleList.printList();
-            case 4 ->  opcMenu =  menu.mainMenu();
-            default -> throw new IllegalStateException("Unexpected value: " + listMenu);
+            case 3: simpleList.printList();
+            case 4:  opcMenu =  menu.mainMenu();
+            default: throw new IllegalStateException("Unexpected value: " + listMenu);
         }
     }
-
     public static void doubleList (int listMenu){
         switch (listMenu) {
-            case 1 -> {
+            case 1: {
                 while (newElement == 1) {
                     System.out.println("Add data to Double list");
                     data = scan.nextLine();
@@ -136,7 +142,7 @@ public class Main {
                 }
                 newElement = 1;
             }
-            case 2 ->  {
+            case 2:  {
 
                 doubleList.validateSize();
                 opc = menu.deleteMenu();
@@ -146,7 +152,7 @@ public class Main {
                     System.out.println("The data was not deleted");
                 }
             }
-            case 3 -> {
+            case 3: {
                 int opcPrint;
                 opcPrint = menu.printMenu();
                 if (opcPrint == 1){
@@ -155,13 +161,13 @@ public class Main {
                     doubleList.printTail();
                 }
             }
-            case 4 -> opcMenu=  menu.mainMenu();
+            case 4: opcMenu=  menu.mainMenu();
         }
 
     }
     public static void circularList (int listMenu){
         switch (listMenu) {
-            case 1 -> {
+            case 1: {
                 while (newElement == 1) {
                     System.out.println("Add data to circular list");
                     data = scan.nextLine();
@@ -171,7 +177,7 @@ public class Main {
                 }
                 newElement = 1;
             }
-            case 2 ->  {
+            case 2:  {
                 circularList.validateSize();
                 opc = menu.deleteMenu();
                 if(opc == 1){
@@ -180,7 +186,7 @@ public class Main {
                     System.out.println("The data was not deleted");
                 }
             }
-            case 3 -> {
+            case 3: {
 
                 int opcPrint;
                 opcPrint = menu.printMenu();
@@ -192,12 +198,12 @@ public class Main {
 
 
             }
-            case 4 -> opcMenu=  menu.mainMenu();
+            case 4: opcMenu=  menu.mainMenu();
         }
     }
     public static void stack(int opcStack){
         switch (opcStack){
-            case 1 -> {
+            case 1: {
                 while (newElement == 1) {
                     System.out.println("Add data to stack");
                     data = scan.nextLine();
@@ -207,7 +213,7 @@ public class Main {
                 }
                 newElement = 1;
             }
-            case 2 ->  {
+            case 2:  {
                 stack.validateSize();
                 opc = menu.deleteMenu();
                 if(opc == 1){
@@ -216,13 +222,13 @@ public class Main {
                     System.out.println("The data was not deleted");
                 }
             }
-            case 3 -> stack.printStack();
-            case 4 -> opcMenu=  menu.mainMenu();
+            case 3: stack.printStack();
+            case 4: opcMenu=  menu.mainMenu();
         }
     }
     public static void queue (int opcQue){
         switch (opcQue){
-            case 1 -> {
+            case 1: {
                 while (newElement == 1) {
                     System.out.println("Add data to queues");
                     data = scan.nextLine();
@@ -232,7 +238,7 @@ public class Main {
                 }
                 newElement = 1;
             }
-            case 2 ->  {
+            case 2:  {
                 queues.validateSize();
                 opc = menu.deleteMenu();
                 if(opc == 1){
@@ -241,13 +247,13 @@ public class Main {
                     System.out.println("The data was not deleted");
                 }
             }
-            case 3 -> queues.printQueue();
-            case 4 -> opcMenu=  menu.mainMenu();
+            case 3: queues.printQueue();
+            case 4: opcMenu=  menu.mainMenu();
         }
     }
-    public static  void recurFact (int opcRec){
+    public static void recurFact (int opcRec){
         switch (opcRec){
-            case 1 -> {
+            case 1: {
                 int num;
                 double result;
                 System.out.println("\n" + "Enter the number to calculate factorial");
@@ -259,7 +265,7 @@ public class Main {
                     System.out.println("the factorial of : " + num +" = " + result +"\n");
                 }
             }
-            case 2 -> {
+            case 2: {
                 double expo;
                 double base;
                 double result;
@@ -275,7 +281,49 @@ public class Main {
                             " is = " + result + "\n");
                 }
             }
-            case 3 -> opcMenu=  menu.mainMenu();
+            case 3: opcMenu=  menu.mainMenu();
+        }
+    }
+    public static void binaryTree(int opcTree){
+        switch (opcTree) {
+            case 1: {
+                int root;
+                int dataTree;
+                System.out.println("Please enter the root of the binary tree");
+                root = scan.nextInt();
+                binaryTree = new BinaryTree(root);
+
+                while (newElement == 1) {
+                    System.out.println("Add data to binary tree");
+                    dataTree = scan.nextInt();
+                    binaryTree.addNode(dataTree);
+                    System.out.println("Great data add to binary tree");
+                    newElement = menu.anotherNode();
+                }
+                newElement = 1;
+                break;
+            }
+
+            case 2: {
+                int dataDeleted;
+                opc = menu.deleteMenu();
+                if(opc == 1){
+                    System.out.println("Please enter the leaf to be deleted");
+                    dataDeleted = scan.nextInt();
+                    binaryTree.removeNodesWithValue(dataDeleted);
+                } else if (opc == 2){
+                    System.out.println("The data was not deleted");
+                }
+                break;
+            }
+            case 3: {
+                int methodPrintTree;
+                System.out.println("Please enter the method that you want to print the binary tree");
+                methodPrintTree = menu.methodPrintBinaryTree();
+                binaryTree.print(methodPrintTree);
+                break;
+            }
+            case 4: opcMenu=  menu.mainMenu();
         }
     }
 }

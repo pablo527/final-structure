@@ -73,7 +73,7 @@ public class Menu {
                 );
                 newData = scan.nextInt();
                 if (newData <1 || newData > 2){
-                    System.out.println("solo numeroes entre 1 y 2");
+                    System.out.println("only numbers between 1 and 2");
                     ban= true;
                 } else {
                     ban = false;
@@ -81,7 +81,7 @@ public class Menu {
             } while (ban);
             return newData;
         } catch (Exception ex){
-            System.out.println("Inalid Option");
+            System.out.println("Invalid Option");
             return -1;
         }
 
@@ -213,6 +213,57 @@ public class Menu {
             return -1;
         }
     }
+    public int binaryTreeMenu(){
+        try {
 
+            do {
+                System.out.println("Binary tree menu");
+                System.out.println(
+                        "Please enter: \n" +
+                                "1.Create \n" +
+                                "2.Delete leaf \n" +
+                                "3.Print\n" +
+                                "4.Return main menu"
+                );
+                opcMenu = scan.nextInt();
+                if (opcMenu <1 || opcMenu > 4){
+                    System.out.println("invalid option");
+                    ban = true;
+                } else {
+                    ban = false;
+                }
+            } while (ban);
+            return opcMenu;
+
+        } catch (Exception ex){
+            System.out.println("Incorrect Input");
+            return -1;
+        }
+    }
+    public int methodPrintBinaryTree(){
+        try {
+            do {
+                System.out.println("Print methods");
+                System.out.println(
+                        "Please enter: \n" +
+                                "1. PREORDEN \n" +
+                                "2. INORDEN \n" +
+                                "3. POSTORDEN \n"
+                );
+                opcMenu = scan.nextInt();
+                if (opcMenu <1 || opcMenu > 3){
+                    System.out.println("invalid option");
+                    ban = true;
+                } else {
+                    ban = false;
+                }
+            } while (ban);
+            return opcMenu;
+
+        } catch (Exception ex){
+            System.out.println("Incorrect Input");
+            return -1;
+        }
+    }
 
 }

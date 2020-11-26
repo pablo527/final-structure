@@ -51,7 +51,6 @@ public class DoubleList {
         }
         size --;
         return deletedNode;
-
     }
 
     public void printTail() {

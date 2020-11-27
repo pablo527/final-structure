@@ -118,7 +118,7 @@ public class DoubleList {
                     current = current.getPreviousElement();
                 }
             } else {
-                System.out.println("the list is empty");
+                System.out.println("The list is empty");
             }
 
         } catch (Exception ex) {

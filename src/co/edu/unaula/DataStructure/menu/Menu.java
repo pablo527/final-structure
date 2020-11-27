@@ -51,7 +51,7 @@ public class Menu {
                 );
                 opcMenu = scan.nextInt();
                 if (opcMenu <1 || opcMenu > 4){
-                    System.out.println("solo numeroes entre 1 y 4");
+                    System.out.println("Only numbers between  1 an 4");
                     ban= true;
                 } else {
                     ban = false;
@@ -59,7 +59,7 @@ public class Menu {
             } while (ban);
             return opcMenu;
         } catch (Exception ex){
-            System.out.println("Inalid Option");
+            System.out.println("Invalid Option");
             return -1;
         }
     }
@@ -67,13 +67,13 @@ public class Menu {
         int newData;
         try {
             do {
-                System.out.println("you want to add a new data? \n"+
+                System.out.println("You want to add a new data? \n"+
                         "1.) yes \n" +
                         "2.) No"
                 );
                 newData = scan.nextInt();
                 if (newData <1 || newData > 2){
-                    System.out.println("only numbers between 1 and 2");
+                    System.out.println("Only numbers between 1 and 2");
                     ban= true;
                 } else {
                     ban = false;
@@ -100,7 +100,7 @@ public class Menu {
                 );
                 opcMenu = scan.nextInt();
                 if (opcMenu <1 || opcMenu > 4){
-                    System.out.println("invalid option");
+                    System.out.println("Invalid option");
                     ban = true;
                 } else {
                     ban = false;
@@ -125,7 +125,7 @@ public class Menu {
                 );
                 opcMenu = scan.nextInt();
                 if (opcMenu <1 || opcMenu > 4){
-                    System.out.println("invalid option");
+                    System.out.println("Invalid option");
                     ban = true;
                 } else {
                     ban = false;
@@ -151,7 +151,7 @@ public class Menu {
                 );
                 opcMenu = scan.nextInt();
                 if (opcMenu <1 || opcMenu > 3){
-                    System.out.println("invalid option");
+                    System.out.println("Invalid option");
                     ban = true;
                 } else {
                     ban = false;
@@ -176,7 +176,7 @@ public class Menu {
                 );
                 opcMenu = scan.nextInt();
                 if (opcMenu <1 || opcMenu > 2){
-                    System.out.println("invalid option");
+                    System.out.println("Invalid option");
                     ban = true;
                 } else {
                     ban = false;
@@ -200,7 +200,7 @@ public class Menu {
                 );
                 opcMenu = scan.nextInt();
                 if (opcMenu <1 || opcMenu > 2){
-                    System.out.println("invalid option");
+                    System.out.println("Invalid option");
                     ban = true;
                 } else {
                     ban = false;
@@ -227,7 +227,7 @@ public class Menu {
                 );
                 opcMenu = scan.nextInt();
                 if (opcMenu <1 || opcMenu > 4){
-                    System.out.println("invalid option");
+                    System.out.println("Invalid option");
                     ban = true;
                 } else {
                     ban = false;
@@ -252,7 +252,7 @@ public class Menu {
                 );
                 opcMenu = scan.nextInt();
                 if (opcMenu <1 || opcMenu > 3){
-                    System.out.println("invalid option");
+                    System.out.println("Invalid option");
                     ban = true;
                 } else {
                     ban = false;

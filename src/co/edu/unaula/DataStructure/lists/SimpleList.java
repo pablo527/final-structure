@@ -84,7 +84,7 @@ public class SimpleList {
                 current = current.getNext();
             }
         } else {
-            System.out.println("the list is empty");
+            System.out.println("The list is empty");
         }
     }
 }

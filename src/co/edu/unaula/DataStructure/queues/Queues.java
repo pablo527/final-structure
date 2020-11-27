@@ -14,13 +14,13 @@ public class Queues {
     Node lastNode;
     int size;
 
-    private boolean isEmty(){
+    private boolean isEmpty(){
         return (firstNode == null);
     }
 
     public void  addToQueues(String data){
         Node newNode = new Node(data);
-        if (isEmty()){
+        if (isEmpty()){
             firstNode = newNode;
         } else {
             lastNode.setNext(newNode);
@@ -29,17 +29,17 @@ public class Queues {
         size ++;
     }
     public  void dequeue(){
-        if(!isEmty()){
+        if(!isEmpty()){
             Node deletedItem = firstNode;
             firstNode = firstNode.getNext();
             size --;
-            System.out.println(" the element was deleted is: " + deletedItem.getData());
+            System.out.println("The element was deleted is: " + deletedItem.getData());
             return;
         }
         System.out.println("The queue is empty");
     }
     public  void printQueue(){
-        if (!isEmty()){
+        if (!isEmpty()){
             Node current = firstNode;
             for (int i = 0; i < size; i++){
                 System.out.println(current.getData());

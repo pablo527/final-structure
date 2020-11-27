@@ -25,7 +25,7 @@ public class StackSimpleList {
         if (!isEmpty()){
             Node deletedItem = topElement;
             topElement = topElement.getNext();
-            System.out.println("the deleted item was: " + deletedItem.getData());
+            System.out.println("The deleted item was: " + deletedItem.getData());
             size --;
             return;
         }

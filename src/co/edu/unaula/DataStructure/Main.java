@@ -195,8 +195,6 @@ public class Main {
                 } else if (opcPrint ==2){
                     circularList.printNodesLast();
                 }
-
-
             }
             case 4: opcMenu=  menu.mainMenu();
         }
@@ -260,9 +258,9 @@ public class Main {
                 num = scan.nextInt();
                 result =  factorial.calcFactRecur(num);
                 if (result <0){
-                    System.out.println("it is not possible to calculate");
+                    System.out.println("It is not possible to calculate");
                 } else {
-                    System.out.println("the factorial of : " + num +" = " + result +"\n");
+                    System.out.println("The factorial of : " + num +" = " + result +"\n");
                 }
             }
             case 2: {
@@ -271,13 +269,13 @@ public class Main {
                 double result;
                 System.out.println("Enter base");
                 base = scan.nextInt();
-                System.out.println("Enter  the exponent");
+                System.out.println("Enter the exponent");
                 expo = scan.nextInt();
                 result  = potency.calcRecurExpo(expo,base);
                 if (result <0){
-                    System.out.println("it is not possible to calculate");
+                    System.out.println("It is not possible to calculate");
                 } else {
-                    System.out.println("the base of: " + base + " to the exponent: " + expo +
+                    System.out.println("The base of: " + base + " to the exponent: " + expo +
                             " is = " + result + "\n");
                 }
             }

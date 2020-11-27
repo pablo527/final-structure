@@ -71,7 +71,7 @@ public class CircularList {
                 current = current.getNextElement();
             }
         } else {
-            System.out.println("the list is empty");
+            System.out.println("The list is empty");
         }
     }
     public void printNodesLast(){
@@ -83,7 +83,7 @@ public class CircularList {
                 current = current.getPreviousElement();
             }
         } else {
-            System.out.println("the list is empty");
+            System.out.println("The list is empty");
         }
     }
 
